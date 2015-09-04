@@ -3,6 +3,10 @@ Rails.application.routes.draw do
   resources :artists
   get 'hip/hop'
   
+  get 'hip/top5art'
+  
+  get 'top5art' => 'hip#top5art'
+  
   root 'hip#hop'
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -5,15 +5,19 @@
   <%= @song.name %>
 </p>
 
-<p>
-  <strong>Rating:</strong>
-  <%= @song.rating %>
+<p><% "#{@song.rating}".to_i.times do %><span class="glyphicon glyphicon-star"></span>
+   <% end %>
 </p>
 
 <p>
   <strong>Artist:</strong>
-  <%= @song.artist %>
+  <%= @song.artist.name %>
 </p>
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
+<br>
+<p><%= link_to new_song_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New Song
+  <% end %>
+</p>

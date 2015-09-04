@@ -1,8 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @artist.name %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="well">
+      <h1><%= @artist.name %></h1>
+      <center><% if @artist.avatar_file_name != nil %>
+        <%= image_tag @artist.avatar.url(:thumb), class: "img-rounded" %>
+      <% end %></center>
+      <p><% "#{@artist.rating}".to_i.times do %><span class="glyphicon glyphicon-star"></span>
+        <% end %>
+      </p>
+	<% @artist.songs.each do |song| %>
+	  <h3><%= link_to song.name, song %></a></h3>
+	<% end %>
+    </div>
+  </div>
+</div>
+
+<p><%= link_to new_artist_path do %>
+  <span class="glyphicon glyphicon-plus"></span> Add New Artist
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_artist_path(@artist) %> |
